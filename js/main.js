@@ -111,7 +111,7 @@ mainTitle.classList.toggle("active")
 
 // get: elm.getAttribute(attributeName);
 const address = linkElm.getAttribute("href")
-console.log(address)
+// console.log(address)
 
 // modify or create: elm.setAttribute(name, value);
 linkElm.setAttribute("href", "https://ironhack.com")
@@ -188,3 +188,29 @@ btn3.addEventListener("click", () => {
 
 
 
+
+//
+// Detect spacebar + "event" object
+//
+
+document.addEventListener("keydown", (e) => {
+    if(e.code === "Space") {
+        console.log("user pressed spacebar")
+    } else {
+        console.log("user pressed other key....")
+    }
+})
+
+
+
+//
+// Attach an event listener to multiple elements
+//
+
+const allBtn = document.querySelectorAll(".btn")
+
+allBtn.forEach((btnElm) => {
+    btnElm.addEventListener("click", () => {
+        console.log("click on a generic btn...")
+    })
+})
