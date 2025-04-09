@@ -137,3 +137,54 @@ const container = document.getElementById("pikachu")
 container.appendChild(newImg)
 
 
+
+
+/**************/
+/**************/
+/*   Events   */
+/**************/
+/**************/
+
+
+/*
+
+Examples of events:
+- Document (DOMContentLoaded, ...)
+- mouse events (ex. click, mouseover...)
+- keyboard events (ex. keydown, keypress, keyup)
+- Full list: https://www.w3schools.com/jsref/dom_obj_event.asp
+
+*/
+
+//
+// attach an event handler:
+// - elm.addEventListener(typeOfEvent, code)
+//
+
+const btn1 = document.getElementById("button-1")
+
+btn1.addEventListener("click", () => {
+    console.log("hello world")
+})
+
+
+
+//
+// Append a paragraph every time the user clicks on a the button with the id "add-paragraph"
+//
+
+const btn3 = document.getElementById("add-paragraph")
+btn3.addEventListener("click", () => {
+    // step1: create the element
+    const newP = document.createElement("p")
+
+    // step2: add content or modify (eg. innerText, attributes...)
+    newP.innerText = "This paragraph was created dynamically."
+
+    //step3: append to the dom: `parentElm.appendChild()`
+    const parentElm = document.getElementById("box-3")
+    parentElm.appendChild(newP)
+})
+
+
+
