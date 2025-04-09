@@ -26,6 +26,12 @@ footer a {
     margin: 0 2rem;
 }
 
+.highlighted {
+    color: purple;
+    background-color: yellow;
+    border: 2px solid green;
+}
+
 .box {
     margin: 2rem auto;
     padding: 2rem;

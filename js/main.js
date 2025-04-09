@@ -25,10 +25,115 @@ const allParagraphsHtmlCollection = document.getElementsByTagName("p")
 // - document.querySelector 
 // - document.querySelectorAll
 
-const first = document.querySelector("header h2");
+const first = document.querySelector("header h2")
 const all = document.querySelectorAll("header h2")
 
 all.forEach( elm => {
     elm.style.color = "purple" //querySelectorAll returns a nodelist (we can use forEach)
 })
+
+
+
+// 
+// 
+// Practice: selecting elements from the DOM
+// 
+// @LT: before doing the exercise, make a quick demo on how to change the style (e.g., elm.style.background = "orange")
+// 
+// - Instructions: https://stackblitz.com/edit/web-platform-ydtmzw?file=script.js
+// - Time: 10-15min.
+// - Solution: https://stackblitz.com/edit/web-platform-doucbe?file=script.js
+// 
+// 
+
+
+
+//
+// context: document vs. element
+//
+
+const allParagraphsInDocument = document.getElementsByTagName("p")
+
+const productsElm = document.getElementById("products")
+const allParagraphsInProductsElm = productsElm.getElementsByTagName("p")
+
+const allParagraphsInProductsElm_Alternative = document.querySelectorAll("#products p")
+
+
+/**************/
+/* Properties */
+/**************/
+
+//Read/Modify html contents --> elm.innerHTML
+const pikachuElm = document.getElementById("pikachu")
+
+pikachuElm.innerHTML = `
+    <div>
+        <p>one<p>
+        <p>two
+            <a href="#">click here for more info</a>
+        <p>
+    </div>
+    `
+
+//Read/Modify text content --> elm.innerText
+const linkElm = document.getElementById("my-link");
+linkElm.innerText = "About us -- we're amazing"
+
+
+//Read/Modify CSS --> elm.style
+// mainTitle.style.color = "purple"
+// mainTitle.style.backgroundColor = "yellow"
+// mainTitle.style.border = "2px solid green";
+
+//Read/Modify the id --> elm.id
+mainTitle.id = "the-new-cool-id"
+
+//Read/Modify class --> elm.className
+// mainTitle.className = "highlighted"
+mainTitle.className = "title rounded"
+
+
+
+//(bonus) elm.classList (provides methods to access class names)
+// 
+// - elm.classList.remove("foo");
+// - elm.classList.add("new-class")
+// - elm.classList.toggle("active")
+
+mainTitle.classList.toggle("active")
+
+
+
+/**************/
+/* Attributes */
+/**************/
+
+// get: elm.getAttribute(attributeName);
+const address = linkElm.getAttribute("href")
+console.log(address)
+
+// modify or create: elm.setAttribute(name, value);
+linkElm.setAttribute("href", "https://ironhack.com")
+linkElm.setAttribute("target", "_blank")
+
+// remove: elm.removeAttribute(attrName);
+
+
+
+/*********************/
+/* Create a DOM node */
+/*********************/
+
+// step1: create the element
+const newImg = document.createElement("img")
+
+// step2: add content or modify (eg. innerText, attributes...)
+newImg.setAttribute("src", "./images/pikachu.jpg")
+newImg.setAttribute("alt", "beautiful pikachu image");
+
+//step3: append to the dom: `parentElm.appendChild()`
+const container = document.getElementById("pikachu")
+container.appendChild(newImg)
+
 
